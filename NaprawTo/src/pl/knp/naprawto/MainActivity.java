@@ -1,15 +1,14 @@
 package pl.knp.naprawto;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.LinearLayout;
 
-@SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
 	LinearLayout prezentacja;
@@ -33,9 +32,15 @@ public class MainActivity extends Activity {
 		
 		prezentacja.setBackgroundDrawable(tlo);
 
-		
-		
-		
+	    new CountDownTimer(5000,1000){
+	        @Override
+	        public void onTick(long millisUntilFinished){} 
+
+	        @Override
+	        public void onFinish(){
+	               setContentView(R.layout.activity_main);
+	        }
+	   }.start();
 		
 	}
 
