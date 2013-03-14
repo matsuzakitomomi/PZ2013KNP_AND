@@ -19,7 +19,6 @@ public class MainActivity extends Activity {
 	int reqHeight;
 	int currentapiVersion;
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,12 +31,8 @@ public class MainActivity extends Activity {
 		prezentacja = (LinearLayout)findViewById(R.id.prezentacja);
 		tlo = new BitmapDrawable(getResources(),decodeSampledBitmapFromResource(getResources(), R.drawable.prezentacja, reqWidth, reqHeight));
 		
-		
-		if (currentapiVersion >= android.os.Build.VERSION_CODES.JELLY_BEAN){
-			prezentacja.setBackground(tlo);
-		} else{
-		    prezentacja.setBackgroundDrawable(tlo);
-		}
+		prezentacja.setBackgroundDrawable(tlo);
+
 		
 		
 		
