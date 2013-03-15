@@ -16,7 +16,6 @@ public class MainActivity extends Activity {
 	
 	int reqWidth;
 	int reqHeight;
-	int currentapiVersion;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +24,6 @@ public class MainActivity extends Activity {
 		
 		reqWidth = getWindowManager().getDefaultDisplay().getWidth();
 		reqHeight = getWindowManager().getDefaultDisplay().getHeight();
-		currentapiVersion = android.os.Build.VERSION.SDK_INT;
 		
 		prezentacja = (LinearLayout)findViewById(R.id.prezentacja);
 		tlo = new BitmapDrawable(getResources(),decodeSampledBitmapFromResource(getResources(), R.drawable.prezentacja, reqWidth, reqHeight));
@@ -38,7 +36,9 @@ public class MainActivity extends Activity {
 
 	        @Override
 	        public void onFinish(){
-	               setContentView(R.layout.activity_main);
+	        	   tlo=null;
+	        	   System.gc();
+	               setContentView(R.layout.user_rejestracja);
 	        }
 	   }.start();
 		

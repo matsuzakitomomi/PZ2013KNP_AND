@@ -7,4 +7,11 @@
     
     <string name="Content"> </string>
     
+    <!-- USER REJESTRACJA -->
+	<string name="user_email">E-mail</string>
+	<string name="user_password">Hasło</string>
+	<string name="user_powtorz_password">Powtórz hasło</string>
+	<string name="user_utworz_konto">Utwórz konto</string>
+	<string name="user_label">Rejestracja</string>
+    
 </resources>
