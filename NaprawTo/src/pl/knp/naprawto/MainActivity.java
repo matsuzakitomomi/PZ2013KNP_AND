@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	        public void onFinish(){
 	        	   tlo=null;
 	        	   System.gc();
-	               setContentView(R.layout.activity_main);
+	               setContentView(R.layout.user_rejestracja);
 	        }
 	   }.start();
 		
