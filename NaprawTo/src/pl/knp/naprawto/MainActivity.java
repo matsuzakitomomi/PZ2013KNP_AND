@@ -1,18 +1,23 @@
 package pl.knp.naprawto;
 
+import pl.knp.naprawto.user.UserRejestracjaActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.view.View;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
-	LinearLayout prezentacja;
+	RelativeLayout prezentacja;
 	BitmapDrawable tlo;
+	
+	TextView rejestracja;
 	
 	int reqWidth;
 	int reqHeight;
@@ -25,22 +30,14 @@ public class MainActivity extends Activity {
 		reqWidth = getWindowManager().getDefaultDisplay().getWidth();
 		reqHeight = getWindowManager().getDefaultDisplay().getHeight();
 		
-		prezentacja = (LinearLayout)findViewById(R.id.prezentacja);
+		prezentacja = (RelativeLayout)findViewById(R.id.prezentacja);
+		rejestracja = (TextView)findViewById(R.id.prezentacja_rejestracja);
+		
+		rejestracja.setOnClickListener(this);
 		tlo = new BitmapDrawable(getResources(),decodeSampledBitmapFromResource(getResources(), R.drawable.prezentacja, reqWidth, reqHeight));
 		
 		prezentacja.setBackgroundDrawable(tlo);
 
-	    new CountDownTimer(5000,1000){
-	        @Override
-	        public void onTick(long millisUntilFinished){} 
-
-	        @Override
-	        public void onFinish(){
-	        	   tlo=null;
-	        	   System.gc();
-	               setContentView(R.layout.user_rejestracja);
-	        }
-	   }.start();
 		
 	}
 
@@ -86,5 +83,20 @@ public class MainActivity extends Activity {
 		super.onPause();
 		tlo=null;
 		System.gc();
+	}
+
+
+
+	@Override
+	public void onClick(View v) {
+		Intent intent = null;
+		switch(v.getId())
+		{	
+			case R.id.prezentacja_rejestracja:
+				intent = new Intent(this,UserRejestracjaActivity.class);
+				break;
+		}
+		startActivity(intent);
+		
 	}
 }

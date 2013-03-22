@@ -1,7 +1,91 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/prezentacja"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
 
-</LinearLayout>
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:allowSingleTap="false"
+        android:content="@+id/content"
+        android:handle="@+id/handle" 
+        >
+
+        <ImageButton
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:background="@drawable/prezentacja_button_top"
+            />
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@drawable/prezentacja_button_dol" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/prezentacja_lista"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic|bold"
+                    android:padding="10dp"
+                    android:text="@string/main_menu_login" />
+                
+                <TextView
+                    android:id="@+id/prezentacja_rejestracja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic|bold"
+                    android:padding="10dp"
+                    android:text="@string/main_menu_registration" />
+                
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic|bold"
+                    android:padding="10dp"
+                    android:text="@string/main_menu_help" />
+                
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic|bold"
+                    android:padding="10dp"
+                    android:text="@string/main_menu_aboutus" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </SlidingDrawer>
+
+</RelativeLayout>
