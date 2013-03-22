@@ -15,6 +15,7 @@
 	<string name="user_label">Rejestracja</string>
 	
     <!-- USER LOGOWANIE -->
+       <string name="user_login_label">Logowanie</string>
        <string name="user_email_login">Podaj e-mail</string>
        <string name="user_password_login">Podaj hasło</string>
        <string name="user_login">Zaloguj</string>
