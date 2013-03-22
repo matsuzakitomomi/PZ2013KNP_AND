@@ -19,4 +19,18 @@
        <string name="user_password_login">Podaj hasło</string>
        <string name="user_login">Zaloguj</string>
        <string name="user_recorvery_password">Przypomnij hasło</string>
+       
+    <!-- USER MENU GLOWNE -->
+       <string name="main_menu_login">Zaloguj</string>
+       <string name="main_menu_registration">Zarejestruj</string>
+       <string name="main_menu_help">Pomoc</string>
+       <string name="main_menu_aboutus">O nas</string>
+       
+    <!-- USER PANEL UZYTKOWNIKA -->    <!--NA CZUJA!!!-->
+       <string name="user_panel_report_problem">Zglos problem</string>
+       <string name="user_panel_your_reports">Zgloszone problemy</string>
+       <string name="user_panel_all_problems">Wszystkie problemy</string>
+       <string name="user_panel_account">Moje konto</string>
+       
+       
 </resources>
