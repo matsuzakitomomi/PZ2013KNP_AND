@@ -1,5 +1,6 @@
 package pl.knp.naprawto;
 
+import pl.knp.naprawto.user.UserLogowanieActivity;
 import pl.knp.naprawto.user.UserRejestracjaActivity;
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +19,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	BitmapDrawable tlo;
 	
 	TextView rejestracja;
+	TextView logowanie;
 	
 	int reqWidth;
 	int reqHeight;
@@ -32,7 +34,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		
 		prezentacja = (RelativeLayout)findViewById(R.id.prezentacja);
 		rejestracja = (TextView)findViewById(R.id.prezentacja_rejestracja);
+		logowanie = (TextView)findViewById(R.id.prezentacja_logowanie);
 		
+		logowanie.setOnClickListener(this);
 		rejestracja.setOnClickListener(this);
 		tlo = new BitmapDrawable(getResources(),decodeSampledBitmapFromResource(getResources(), R.drawable.prezentacja, reqWidth, reqHeight));
 		
@@ -94,6 +98,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		{	
 			case R.id.prezentacja_rejestracja:
 				intent = new Intent(this,UserRejestracjaActivity.class);
+				break;
+			case R.id.prezentacja_logowanie:
+				intent = new Intent(this,UserLogowanieActivity.class);
 				break;
 		}
 		startActivity(intent);

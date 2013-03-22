@@ -6,14 +6,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-         >
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_gravity="center_vertical"
-            android:text="@string/user_label"
+            android:text="@string/user_login_label"
             android:textSize="25dp"
             android:textStyle="bold|italic" />
 
@@ -23,7 +23,8 @@
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="85" >
+        android:layout_weight="85"
+        android:layout_marginTop="10dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +34,7 @@
 
             <TextView
                 style="@style/user_textview"
-                android:text="@string/user_email" />
+                android:text="@string/user_email_login" />
 
             <EditText
                 android:id="@+id/user_edit_email"
@@ -44,22 +45,12 @@
 
             <TextView
                 style="@style/user_textview"
-                android:text="@string/user_password" />
+                android:text="@string/user_password_login" />
 
             <EditText
                 android:id="@+id/user_edit_haslo"
                 style="@style/user_edittext"
                 android:inputType="textPassword" />
-
-            <TextView
-                style="@style/user_textview"
-                android:text="@string/user_powtorz_password" />
-
-            <EditText
-                android:id="@+id/user_edit_powtorz"
-                style="@style/user_edittext"
-                android:inputType="textPassword" >
-            </EditText>
 
             <Button
                 android:id="@+id/user_btn_uwtowrz"
@@ -67,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="14dp"
-                android:text="@string/user_utworz_konto" 
+                android:text="@string/user_recorvery_password" 
                 android:textSize="17sp"
                 android:textStyle="bold"/>
 

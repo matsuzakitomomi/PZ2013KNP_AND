@@ -25,7 +25,11 @@
         <activity 
             android:name="pl.knp.naprawto.user.UserRejestracjaActivity"
             android:screenOrientation="portrait"
-            ></activity>
+         ></activity>
+         <activity 
+            android:name="pl.knp.naprawto.user.UserLogowanieActivity"
+            android:screenOrientation="portrait"
+         ></activity>
     </application>
 
 </manifest>
