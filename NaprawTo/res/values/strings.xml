@@ -20,6 +20,7 @@
        <string name="user_password_login">Podaj hasło</string>
        <string name="user_login">Zaloguj</string>
        <string name="user_recorvery_password">Przypomnij hasło</string>
+       <string name="user_dlugosc_hasla">min 7 - znaków</string>
        
     <!-- USER MENU GLOWNE -->
        <string name="main_menu_login">Zaloguj</string>
