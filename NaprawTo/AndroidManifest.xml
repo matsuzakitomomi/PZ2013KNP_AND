@@ -32,6 +32,14 @@
             android:name="pl.knp.naprawto.user.UserLogowanieActivity"
             android:screenOrientation="portrait"
          ></activity>
+         <activity 
+            android:name="pl.knp.naprawto.MenuGlowneActivity"
+            android:screenOrientation="portrait"
+         ></activity>
+         <activity 
+            android:name="pl.knp.naprawto.zglaszanie.ZglaszanieUsterkiActivity"
+            android:screenOrientation="portrait"
+         ></activity>
     </application>
 
 </manifest>

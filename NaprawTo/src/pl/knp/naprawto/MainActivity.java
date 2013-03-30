@@ -16,7 +16,6 @@ import android.view.View;
 public class MainActivity extends Activity implements View.OnClickListener {
 
 	RelativeLayout prezentacja;
-	BitmapDrawable tlo;
 	
 	TextView rejestracja;
 	TextView logowanie;
@@ -38,9 +37,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		
 		logowanie.setOnClickListener(this);
 		rejestracja.setOnClickListener(this);
-		tlo = new BitmapDrawable(getResources(),decodeSampledBitmapFromResource(getResources(), R.drawable.prezentacja, reqWidth, reqHeight));
-		
-		prezentacja.setBackgroundDrawable(tlo);
+
+		prezentacja.setBackgroundDrawable(new BitmapDrawable(getResources(),decodeSampledBitmapFromResource(getResources(), R.drawable.prezentacja, reqWidth, reqHeight)));
 
 		
 	}
@@ -70,26 +68,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			return inSampleSize;		
 		}
 		
-	
-
-
-	@Override
-	public void onBackPressed() {
-	    super.onBackPressed();
-	    tlo=null;
-		System.gc();
-	    
-		finish();
-	}
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		tlo=null;
-		System.gc();
-	}
-
-
 
 	@Override
 	public void onClick(View v) {

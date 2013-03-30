@@ -13,10 +13,12 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
+import pl.knp.naprawto.MenuGlowneActivity;
 import pl.knp.naprawto.R;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
@@ -50,6 +52,12 @@ public class UserLogowanieActivity extends Activity implements View.OnClickListe
 		
 	}
 
+	@Override
+	protected void onResume() {
+		email.setText(UserDane.email);
+		super.onResume();
+	}
+	
 	@Override
 	public void onClick(View v) {
 		switch(v.getId())
@@ -148,6 +156,10 @@ public class UserLogowanieActivity extends Activity implements View.OnClickListe
 	            	if(wynik)
 	            	{
 	            		Toast.makeText(context, "Zosta³eœ zalogowany", Toast.LENGTH_SHORT).show();
+	            		UserDane.email=email.getText().toString();
+	            		finish();
+	            		Intent intent = new Intent(context,MenuGlowneActivity.class);
+	            		startActivity(intent);
 	            	}
 	            	else
 	            	{

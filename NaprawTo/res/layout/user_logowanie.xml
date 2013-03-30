@@ -1,11 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/prezentacja">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="@drawable/belka"
         >
 
         <TextView
@@ -15,7 +17,8 @@
             android:layout_gravity="center_vertical"
             android:text="@string/user_login_label"
             android:textSize="25sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
@@ -60,7 +63,8 @@
                 android:layout_marginTop="14dp"
                 android:text="@string/user_login" 
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:background="@drawable/button"/>
 
         </LinearLayout>
     </ScrollView>

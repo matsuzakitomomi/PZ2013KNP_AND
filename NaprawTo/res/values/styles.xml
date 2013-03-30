@@ -29,6 +29,7 @@
     <style name="user_textview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
     </style>

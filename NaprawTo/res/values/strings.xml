@@ -29,10 +29,16 @@
        <string name="main_menu_aboutus">O nas</string>
        
     <!-- USER PANEL UZYTKOWNIKA -->    <!--NA CZUJA!!!-->
-       <string name="user_panel_report_problem">Zglos problem</string>
-       <string name="user_panel_your_reports">Zgloszone problemy</string>
+       <string name="user_panel_report_problem">Zgloś problem</string>
+       <string name="user_panel_your_reports">Zgłoszone problemy</string>
        <string name="user_panel_all_problems">Wszystkie problemy</string>
        <string name="user_panel_account">Moje konto</string>
+       
+    <!-- MENU GŁÓWNE -->
+       <string name="menu_main_report_problem">Zgłoś usterkę</string>
+       <string name="menu_main_your_reports">Twoje zgłoszenia</string>
+       <string name="menu_main_all_problems">Usterki w pobliżu</string>
+
        
        
 </resources>
