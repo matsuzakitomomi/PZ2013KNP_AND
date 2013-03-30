@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/belka" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:text="@string/user_panel_report_problem"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:textColor="@android:color/white"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:text="Tytuł usterki: " />
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/zglaszanie_dodaj_tytul"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                android:text="Dziura w jezdni się zrobiła ogromna, czy ktoś na to zareaguje" 
+                android:singleLine="true"
+                android:padding="5dp"/>
+
+            <ImageButton
+                android:id="@+id/zglaszanie_dodaj_tytul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:src="@android:drawable/ic_input_add" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
