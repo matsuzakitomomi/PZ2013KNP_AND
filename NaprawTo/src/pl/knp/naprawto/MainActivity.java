@@ -1,7 +1,7 @@
 package pl.knp.naprawto;
 
-import pl.knp.naprawto.user.UserLogowanieActivity;
 import pl.knp.naprawto.user.UserRejestracjaActivity;
+import pl.knp.naprawto.zglaszanie.ZglaszanieUsterkiActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,9 +9,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.view.View;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -78,7 +78,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				intent = new Intent(this,UserRejestracjaActivity.class);
 				break;
 			case R.id.prezentacja_logowanie:
-				intent = new Intent(this,UserLogowanieActivity.class);
+//				intent = new Intent(this,UserLogowanieActivity.class); pozniej odkomentowac, na czas pisania aplikacji
+				intent = new Intent(this,ZglaszanieUsterkiActivity.class);
 				break;
 		}
 		startActivity(intent);
