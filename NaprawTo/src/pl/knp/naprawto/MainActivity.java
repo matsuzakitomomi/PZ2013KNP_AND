@@ -1,7 +1,7 @@
 package pl.knp.naprawto;
 
+import pl.knp.naprawto.user.UserLogowanieActivity;
 import pl.knp.naprawto.user.UserRejestracjaActivity;
-import pl.knp.naprawto.zglaszanie.ZglaszanieUsterkiActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -78,8 +78,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				intent = new Intent(this,UserRejestracjaActivity.class);
 				break;
 			case R.id.prezentacja_logowanie:
-//				intent = new Intent(this,UserLogowanieActivity.class); pozniej odkomentowac, na czas pisania aplikacji
-				intent = new Intent(this,ZglaszanieUsterkiActivity.class);
+				intent = new Intent(this,UserLogowanieActivity.class);// pozniej odkomentowac, na czas pisania aplikacji
+//				intent = new Intent(this,ZglaszanieUsterkiActivity.class);
 				break;
 		}
 		startActivity(intent);

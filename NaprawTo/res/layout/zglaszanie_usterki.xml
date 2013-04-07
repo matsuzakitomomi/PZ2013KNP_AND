@@ -1,11 +1,17 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/prezentacja_czyste"
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/belka" >
 
         <TextView
@@ -20,219 +26,234 @@
     </LinearLayout>
 
     <ScrollView
-    android:id="@+id/hsv"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+        android:id="@+id/hsv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/button1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:scrollbarStyle="insideOverlay"
+        android:layout_below="@+id/LinearLayout1" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            android:textColor="@android:color/white"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:text="Tytuł usterki: " />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/zglaszanie_tytul"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/zglaszanie_dodaj_tytul"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                android:text="Brak tytułu" 
-                android:singleLine="true"
-                android:padding="5dp"/>
-
-            <ImageButton
-                android:id="@+id/zglaszanie_dodaj_tytul"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"
-                android:padding="5dp"
-                android:src="@android:drawable/ic_input_add" />
-
-        </RelativeLayout>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            android:textColor="@android:color/white"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:text="Opis usterki: " />
-        
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/zglaszanie_opis"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/zglaszanie_dodaj_opis"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                android:text="Brak opisu" 
-                android:singleLine="true"
-                android:padding="5dp"/>
-
-            <ImageButton
-                android:id="@+id/zglaszanie_dodaj_opis"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"
-                android:padding="5dp"
-                android:src="@android:drawable/ic_input_add" />
-
-        </RelativeLayout>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            android:textColor="@android:color/white"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:text="Typ usterki: " />
-        
-            <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/zglaszanie_dodaj_typ"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                android:text="Infrastruktura" 
-                android:singleLine="true"
-                android:padding="5dp"/>
-
-            <ImageButton
-                android:id="@+id/zglaszanie_dodaj_typ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"
-                android:padding="5dp"
-                android:src="@android:drawable/ic_input_add" />
-
-        </RelativeLayout>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            android:textColor="@android:color/white"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:text="Zdjęcie usterki: " />        
-         
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/zglaszanie_dodaj_typ"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                android:text="dscn1299.jpg" 
-                android:singleLine="true"
-                android:padding="5dp"/>
-
-            <ImageButton
-                android:id="@+id/zglaszanie_dodaj_zdjecie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"
-                android:padding="5dp"
-                android:src="@android:drawable/ic_input_add" />
-
-        </RelativeLayout>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            android:textColor="@android:color/white"
-            android:padding="5dp"
-            android:textStyle="bold"
-            android:text="Lokalizacja usterki: " />   
-            
-        <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp" >
+                android:padding="5dp"
+                android:text="Tytuł usterki: "
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/zglaszanie_tytul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/zglaszanie_dodaj_tytul"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="Brak tytułu"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="italic" />
+
+                <ImageButton
+                    android:id="@+id/zglaszanie_dodaj_tytul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:src="@android:drawable/ic_input_add" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Opis usterki: "
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/zglaszanie_opis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/zglaszanie_dodaj_opis"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="Brak opisu"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="italic" />
+
+                <ImageButton
+                    android:id="@+id/zglaszanie_dodaj_opis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:src="@android:drawable/ic_input_add" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Typ usterki: "
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/zglaszanie_typ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/zglaszanie_dodaj_typ"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="Brak typu"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="italic" />
+
+                <ImageButton
+                    android:id="@+id/zglaszanie_dodaj_typ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:src="@android:drawable/ic_input_add" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Zdjęcie usterki: "
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/zglaszanie_zdjecie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/zglaszanie_dodaj_zdjecie"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="Brak zdjęcia"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="italic" />
+
+                <ImageButton
+                    android:id="@+id/zglaszanie_dodaj_zdjecie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:src="@android:drawable/ic_input_add" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Lokalizacja usterki: "
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp" 
+                android:layout_marginRight="30dp">
 
                 <com.google.android.maps.MapView
                     android:id="@+id/mapview"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:apiKey="@string/googlemapapikey"
-                    android:clickable="true" />
+                    android:clickable="true" 
+                    />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/mapview"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true" >
 
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/zglaszanie_typ_mapy"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="Typ mapy" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/zglaszanie_moja_lokalizacja"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="Moja lokalizacja" />
-
                 </LinearLayout>
 
-       </RelativeLayout>
-        
-    </LinearLayout>
+                <CheckBox
+                    android:id="@+id/zglaszanie_usterki_recznie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/mapview"
+                    android:layout_alignTop="@+id/mapview"
+                    android:text="Zaznacz, a następnie kliknij w mapę, aby zaznaczyc miejsce zdarzenia" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
-    
-</LinearLayout>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button"
+        android:layout_marginTop="5dp"
+        android:text="Wyślij zgłoszenie" />
+
+</RelativeLayout>
