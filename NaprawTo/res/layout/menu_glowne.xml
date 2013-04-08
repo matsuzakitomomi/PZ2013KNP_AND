@@ -25,7 +25,7 @@
             android:textColor="@android:color/black"/>
         
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/menu_zgloszenia_uzytkownika"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
@@ -59,7 +59,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:padding="5dp"
-        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
         />
 
 </RelativeLayout>

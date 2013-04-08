@@ -50,6 +50,18 @@
             android:name="pl.knp.naprawto.zglaszanie.ZglaszanieUsterkiActivity"
             android:screenOrientation="portrait"
          ></activity>
+         <activity 
+            android:name="pl.knp.naprawto.zgloszeniauzytkownika.TabHostActivity"
+            android:screenOrientation="portrait"
+         ></activity>
+          <activity 
+            android:name="pl.knp.naprawto.zgloszeniauzytkownika.SpisPunktow"
+            android:screenOrientation="portrait"
+         ></activity>
+          <activity 
+            android:name="pl.knp.naprawto.zgloszeniauzytkownika.MapaActivity"
+            android:screenOrientation="portrait"
+         ></activity>
     </application>
 
 </manifest>

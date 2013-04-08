@@ -29,7 +29,7 @@
         android:id="@+id/hsv"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/zglaszanie_wyslij"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:scrollbarStyle="insideOverlay"
@@ -242,13 +242,14 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/mapview"
                     android:layout_alignTop="@+id/mapview"
+                    android:textColor="#ff0000"
                     android:text="Zaznacz, a następnie kliknij w mapę, aby zaznaczyc miejsce zdarzenia" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/zglaszanie_wyslij"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
