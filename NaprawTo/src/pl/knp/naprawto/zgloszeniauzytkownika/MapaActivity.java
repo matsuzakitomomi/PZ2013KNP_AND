@@ -11,6 +11,7 @@ public class MapaActivity extends MapActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mapa);
+		
 	}
 	
 	@Override

@@ -15,7 +15,6 @@ public class TabHostActivity extends TabActivity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.tabhost);
 	       	    
-
 	    addPunkty("PUNKTY", SpisPunktow.class);
 	    addMapa("MAPA", MapaActivity.class);
 	}
@@ -29,7 +28,7 @@ public class TabHostActivity extends TabActivity {
 		ImageButton title = (ImageButton) tabIndicator.findViewById(R.id.title);
 		title.setImageResource(R.drawable.p);
 
-		spec.setIndicator(tabIndicator);
+		spec.setIndicator("",getResources().getDrawable(R.drawable.p));
 		spec.setContent(intent);
 		tabHost.addTab(spec);
 	}
@@ -43,7 +42,7 @@ public class TabHostActivity extends TabActivity {
 		ImageButton title = (ImageButton) tabIndicator.findViewById(R.id.title);
 		title.setImageResource(R.drawable.m);
 
-		spec.setIndicator(tabIndicator);
+		spec.setIndicator("",getResources().getDrawable(R.drawable.m));
 		spec.setContent(intent);
 		tabHost.addTab(spec);
 	}
