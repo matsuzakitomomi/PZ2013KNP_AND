@@ -29,8 +29,9 @@ import android.widget.TextView;
 public class SpisPunktow extends ListActivity {
 	
 	ListView listView;
-	ArrayList<UsterkaListaMapa> areas = new ArrayList<UsterkaListaMapa>();
+	public static ArrayList<UsterkaListaMapa> areas = new ArrayList<UsterkaListaMapa>();
 	Boolean loadingMore = false;
+	Boolean endrecords = false;
 	ArrayAdapter<UsterkaListaMapa> adapter;
 	int page = 1;
 	
@@ -51,7 +52,7 @@ public class SpisPunktow extends ListActivity {
 
 				int lastInScreen = firstVisibleItem + visibleItemCount;				
 
-				if((totalItemCount >= 20 || totalItemCount == 0) && (lastInScreen >= totalItemCount - 1) && !(loadingMore)) {					
+				if((totalItemCount >= 8 || totalItemCount == 0) && (lastInScreen >= totalItemCount - 1) && !(loadingMore) && !(endrecords)) {					
 					Thread thread =  new Thread(null, loadMoreListItems);
 			        thread.start();
 				}
@@ -75,13 +76,14 @@ public class SpisPunktow extends ListActivity {
         	
 			try {
 				String url = "http://darmowephp.cba.pl/naprawto/json/pobieraniezgloszen/twojezgloszenia.php?email="+UserDane.email+"&max="+Integer.toString(page*10);
-				
+				Log.i("URL",url);
 				HttpClient hc = new DefaultHttpClient();
 				HttpGet get = new HttpGet(url);
 				HttpResponse rp = hc.execute(get);
 				if (rp.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 					String result = EntityUtils.toString(rp.getEntity());
 					JSONArray sessions = new JSONArray(result);
+					if(sessions.length()==0) endrecords=true;
 					for (int i = 0; i < sessions.length(); i++) {
 						JSONObject json = sessions.getJSONObject(i);
 						UsterkaListaMapa usterka = new UsterkaListaMapa(json);
