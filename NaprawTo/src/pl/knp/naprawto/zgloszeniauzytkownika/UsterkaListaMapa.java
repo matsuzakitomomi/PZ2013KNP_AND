@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class UsterkaListaMapa  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	String title, dir, description;
+	String title, dir, description, data;
 	int longitude,latitude;
 	
 	public UsterkaListaMapa(JSONObject data) {
@@ -19,6 +19,7 @@ public class UsterkaListaMapa  implements Serializable{
 			description = data.getString("description");
 			longitude = data.getInt("longitude");
 			latitude = data.getInt("latitude");
+			this.data=data.getString("data");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

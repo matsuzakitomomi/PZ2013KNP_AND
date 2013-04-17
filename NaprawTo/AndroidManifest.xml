@@ -62,6 +62,10 @@
             android:name="pl.knp.naprawto.zgloszeniauzytkownika.MapaActivity"
             android:screenOrientation="portrait"
          ></activity>
+          <activity 
+            android:name="pl.knp.naprawto.OpisUsterki"
+            android:screenOrientation="portrait"
+         ></activity>
     </application>
 
 </manifest>

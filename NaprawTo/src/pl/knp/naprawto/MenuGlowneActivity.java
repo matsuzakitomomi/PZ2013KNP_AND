@@ -2,6 +2,7 @@ package pl.knp.naprawto;
 
 import pl.knp.naprawto.user.UserDane;
 import pl.knp.naprawto.zglaszanie.ZglaszanieUsterkiActivity;
+import pl.knp.naprawto.zgloszeniauzytkownika.SpisPunktow;
 import pl.knp.naprawto.zgloszeniauzytkownika.TabHostActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,6 +52,7 @@ public class MenuGlowneActivity extends Activity implements View.OnClickListener
 		            new DialogInterface.OnClickListener() {
 		                public void onClick(DialogInterface dialog, int which) {
 		                    dialog.cancel();
+		                    SpisPunktow.wyczyscPunkty();
 		                    finish();
 		                }
 		            });
