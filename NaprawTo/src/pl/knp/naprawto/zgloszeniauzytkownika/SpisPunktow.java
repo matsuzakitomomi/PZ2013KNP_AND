@@ -67,11 +67,8 @@ public class SpisPunktow extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
     	    	    		
-    		Intent intent = new Intent(this, OpisUsterki.class);
-//    		intent.putExtra("title", item.getTitle());
-//    		intent.putExtra("image", item.getImagePath());
-//    		intent.putExtra("id", Integer.toString(item.getId()));
-//    		intent.putExtra("typ", item.getType());
+    		Intent intent = new Intent(this, OpisUsterki.class);    		
+    		intent.putExtra("item", adapter.getItem(position));
     		startActivity(intent);
 
     		    	

@@ -8,8 +8,8 @@ import org.json.JSONObject;
 public class UsterkaListaMapa  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	String title, dir, description, data;
-	int longitude,latitude;
+	public String title, dir, description, data;
+	public int longitude,latitude;
 	
 	public UsterkaListaMapa(JSONObject data) {
 

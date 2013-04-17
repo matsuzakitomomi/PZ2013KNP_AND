@@ -10,4 +10,35 @@
         android:apiKey="0A1jwXQDYaVs17PG_XNfLdiojHge4ykCdDnpkOw"
         android:clickable="true" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+		>
+
+        <Button
+            android:id="@+id/typ"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
+
+        <Button
+            android:id="@+id/ja"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/mapa_moja_lokalizacja"/>
+
+        <Button
+            android:id="@+id/centrum"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mapa_centrum"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

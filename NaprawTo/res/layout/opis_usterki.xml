@@ -16,9 +16,10 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_horizontal"
             android:singleLine="true"
-            android:text="Dziura w jezdni"
             android:textColor="@android:color/white"
             android:textSize="25sp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
 
@@ -46,7 +47,6 @@
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="19.20.13 21:33"
                 android:textColor="@android:color/white"
                 android:textSize="19sp" />
 
@@ -61,11 +61,22 @@
 
                 <com.google.android.maps.MapView
                     android:id="@+id/map"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="320dp"
+                    android:layout_height="320dp"
                     android:apiKey="0A1jwXQDYaVs17PG_XNfLdiojHge4ykCdDnpkOw" >
                 </com.google.android.maps.MapView>
+
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/opis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout2"
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:padding="7dp"
+                android:layout_marginTop="5dp" />
 
         </RelativeLayout>
     </ScrollView>

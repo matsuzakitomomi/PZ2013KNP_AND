@@ -35,11 +35,14 @@
        <string name="user_panel_all_problems">Wszystkie problemy</string>
        <string name="user_panel_account">Moje konto</string>
        
-    <!-- MENU GŁÓWNE -->
+    <!-- MENU GLOWNE -->
        <string name="menu_main_report_problem">Zgłoś usterkę</string>
        <string name="menu_main_your_reports">Twoje zgłoszenia</string>
        <string name="menu_main_all_problems">Usterki w pobliżu</string>
-
+       
+    <!-- MAPA Z PUNKTAMI -->  
+   	   <string name="mapa_centrum">Centrum</string>
+       <string name="mapa_moja_lokalizacja">Moje lokalizacja</string>
        
        
 </resources>
