@@ -18,12 +18,16 @@ public class OpisUsterki extends MapActivity {
 	TextView tytul;
 	TextView opis;
 	TextView data;
+	TextView typ;
 	
 	MapView mapa;
 	ObjectItemizedOverlay itemizedOverlay;
 	Drawable defaultMarker;
 	
 	GeoPoint point;
+	OverlayItem overlayItem;
+	
+	static String [] items = new String[]{"wypadek","kradzie¿","infrastruktura","inne"};
 	
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -37,6 +41,7 @@ public class OpisUsterki extends MapActivity {
 			opis = (TextView)findViewById(R.id.opis);
 			data = (TextView)findViewById(R.id.data);
 			mapa = (MapView)findViewById(R.id.map);
+			typ = (TextView)findViewById(R.id.typ);
 			
 			tytul.setText(usterka.title);
 			opis.setText(usterka.description);
@@ -47,11 +52,16 @@ public class OpisUsterki extends MapActivity {
 			
 			point = new GeoPoint(usterka.latitude, usterka.longitude);
 			
-			itemizedOverlay.addOverlay(new OverlayItem(point, null, null));
+			overlayItem = new OverlayItem(point, null, null);
+			overlayItem.setMarker(getMarker(usterka.typ));
+			
+			itemizedOverlay.addOverlay(overlayItem);
 			itemizedOverlay.populateNow();
 			
 			mapa.getOverlays().add(itemizedOverlay);
 			mapa.postInvalidate();
+			
+			typ.setText(typ.getText().toString()+items[usterka.typ]);
 			
 			wycentruj();
 			
@@ -70,6 +80,33 @@ public class OpisUsterki extends MapActivity {
 		
 		mapa.getController().zoomToSpan(latspanE6, lonspanE6);
 		mapa.getController().animateTo(point); 
+	}
+	
+	public Drawable getMarker(int typ)
+	{
+		Drawable d=null;
+		
+		switch (typ) {
+		case 0:
+			d = getResources().getDrawable(R.drawable.pogotowie);
+			break;
+		case 1:
+			d = getResources().getDrawable(R.drawable.drogowcy);
+			break;
+		case 2:
+			d = getResources().getDrawable(R.drawable.policja);
+			break;
+		case 3:
+			d = getResources().getDrawable(R.drawable.inne);
+			break;
+
+		default:
+			break;
+		}
+		
+		d.setBounds(0, -d.getIntrinsicHeight(), d.getIntrinsicWidth(), 0);
+		
+		return d;
 	}
 
 }

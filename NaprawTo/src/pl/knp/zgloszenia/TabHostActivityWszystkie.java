@@ -1,6 +1,7 @@
-package pl.knp.naprawto.zgloszeniauzytkownika;
+package pl.knp.zgloszenia;
 
 import pl.knp.naprawto.R;
+import pl.knp.naprawto.zgloszeniauzytkownika.MapaActivity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +10,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TabHost;
 
-public class TabHostActivity extends TabActivity {
+public class TabHostActivityWszystkie extends TabActivity {
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.tabhost);
 	       	    
-	    addPunkty("PUNKTY", SpisPunktow.class);
+	    addPunkty("PUNKTY", SpisPunktowWszystkich.class);
 	    addMapa("MAPA", MapaActivity.class);
 	}
 	
@@ -36,7 +37,7 @@ public class TabHostActivity extends TabActivity {
 	private void addMapa(String labelId, Class<?> c) {
 		TabHost tabHost = getTabHost();
 		Intent intent = new Intent(this, c);
-		intent.putExtra("uzytkownik", true);
+		intent.putExtra("uzytkownik", false);
 		TabHost.TabSpec spec = tabHost.newTabSpec("tab" + labelId);
 
 		View tabIndicator = LayoutInflater.from(this).inflate(R.layout.tabs, getTabWidget(), false);
@@ -47,5 +48,6 @@ public class TabHostActivity extends TabActivity {
 		spec.setContent(intent);
 		tabHost.addTab(spec);
 	}
+	
 
 }

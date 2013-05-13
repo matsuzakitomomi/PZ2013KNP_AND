@@ -66,6 +66,14 @@
             android:name="pl.knp.naprawto.OpisUsterki"
             android:screenOrientation="portrait"
          ></activity>
+          <activity 
+            android:name="pl.knp.zgloszenia.SpisPunktowWszystkich"
+            android:screenOrientation="portrait"
+         ></activity>
+          <activity 
+            android:name="pl.knp.zgloszenia.TabHostActivityWszystkie"
+            android:screenOrientation="portrait"
+         ></activity>
     </application>
 
 </manifest>

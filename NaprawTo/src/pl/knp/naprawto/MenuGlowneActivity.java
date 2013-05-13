@@ -4,6 +4,8 @@ import pl.knp.naprawto.user.UserDane;
 import pl.knp.naprawto.zglaszanie.ZglaszanieUsterkiActivity;
 import pl.knp.naprawto.zgloszeniauzytkownika.SpisPunktow;
 import pl.knp.naprawto.zgloszeniauzytkownika.TabHostActivity;
+import pl.knp.zgloszenia.SpisPunktowWszystkich;
+import pl.knp.zgloszenia.TabHostActivityWszystkie;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,6 +21,7 @@ public class MenuGlowneActivity extends Activity implements View.OnClickListener
 	TextView wyloguj;
 	Button zglos_usterke;
 	Button twoje_zgloszenia;
+	Button usterki_w_poblizu;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +35,11 @@ public class MenuGlowneActivity extends Activity implements View.OnClickListener
 		
 		zglos_usterke = (Button)findViewById(R.id.menu_zglos_usterke);
 		twoje_zgloszenia = (Button)findViewById(R.id.menu_zgloszenia_uzytkownika);
+		usterki_w_poblizu = (Button)findViewById(R.id.menu_usterki_w_poblizu);
 		
 		twoje_zgloszenia.setOnClickListener(this);
 		zglos_usterke.setOnClickListener(this);
+		usterki_w_poblizu.setOnClickListener(this);
 		
 	}
 	
@@ -53,6 +58,7 @@ public class MenuGlowneActivity extends Activity implements View.OnClickListener
 		                public void onClick(DialogInterface dialog, int which) {
 		                    dialog.cancel();
 		                    SpisPunktow.wyczyscPunkty();
+		                    SpisPunktowWszystkich.wyczyscPunkty();
 		                    finish();
 		                }
 		            });
@@ -80,6 +86,10 @@ public class MenuGlowneActivity extends Activity implements View.OnClickListener
 				break;
 			case R.id.menu_zgloszenia_uzytkownika:
 				intent = new Intent(this,TabHostActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.menu_usterki_w_poblizu:
+				intent = new Intent(this,TabHostActivityWszystkie.class);
 				startActivity(intent);
 				break;
 		}

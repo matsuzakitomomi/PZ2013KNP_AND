@@ -10,15 +10,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
 	RelativeLayout prezentacja;
 	
-	TextView rejestracja;
-	TextView logowanie;
+	Button rejestracja;
+	Button logowanie;
 	
 	int reqWidth;
 	int reqHeight;
@@ -32,8 +32,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		reqHeight = getWindowManager().getDefaultDisplay().getHeight();
 		
 		prezentacja = (RelativeLayout)findViewById(R.id.prezentacja);
-		rejestracja = (TextView)findViewById(R.id.prezentacja_rejestracja);
-		logowanie = (TextView)findViewById(R.id.prezentacja_logowanie);
+		rejestracja = (Button)findViewById(R.id.prezentacja_rejestracja);
+		logowanie = (Button)findViewById(R.id.prezentacja_logowanie);
 		
 		logowanie.setOnClickListener(this);
 		rejestracja.setOnClickListener(this);
@@ -78,8 +78,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				intent = new Intent(this,UserRejestracjaActivity.class);
 				break;
 			case R.id.prezentacja_logowanie:
-				intent = new Intent(this,UserLogowanieActivity.class);// pozniej odkomentowac, na czas pisania aplikacji
-//				intent = new Intent(this,ZglaszanieUsterkiActivity.class);
+				intent = new Intent(this,UserLogowanieActivity.class);
 				break;
 		}
 		startActivity(intent);

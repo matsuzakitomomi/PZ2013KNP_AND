@@ -1,56 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/prezentacja_czyste" >
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/menu_zglos_usterke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:text="@string/menu_main_report_problem" 
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"/>
-        
-        <Button
-            android:id="@+id/menu_zgloszenia_uzytkownika"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:text="@string/menu_main_your_reports" 
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"/>
-        
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:text="@string/menu_main_all_problems" 
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:textSize="20sp"
-            android:textStyle="bold" 
-            android:textColor="@android:color/black"/>
-
-    </LinearLayout>
+    android:background="@drawable/prezentacja" >
 
     <TextView
         android:id="@+id/menu_wyloguj"
@@ -62,5 +13,46 @@
         android:textStyle="bold"
         android:textColor="@android:color/white"
         />
+    
+    <Button
+        android:id="@+id/menu_usterki_w_poblizu"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/menu_main_all_problems" 
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button"/>
+
+    <Button
+        android:id="@+id/menu_zgloszenia_uzytkownika"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/menu_usterki_w_poblizu"
+        android:layout_alignLeft="@+id/menu_usterki_w_poblizu"
+        android:layout_alignRight="@+id/menu_usterki_w_poblizu"
+        android:text="@string/menu_main_your_reports" 
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button"/>
+
+    <Button
+        android:id="@+id/menu_zglos_usterke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/menu_zgloszenia_uzytkownika"
+        android:layout_alignLeft="@+id/menu_zgloszenia_uzytkownika"
+        android:layout_alignRight="@+id/menu_zgloszenia_uzytkownika"
+        android:text="@string/menu_main_report_problem" 
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button"/>
 
 </RelativeLayout>

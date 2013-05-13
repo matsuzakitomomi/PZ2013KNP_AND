@@ -1,4 +1,4 @@
-package pl.knp.naprawto.zgloszeniauzytkownika;
+package pl.knp.zgloszenia;
 
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import pl.knp.naprawto.OpisUsterki;
 import pl.knp.naprawto.R;
-import pl.knp.naprawto.user.UserDane;
+import pl.knp.naprawto.zgloszeniauzytkownika.UsterkaListaMapa;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +31,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class SpisPunktow extends ListActivity {
+public class SpisPunktowWszystkich extends ListActivity {
 	
 	ListView listView;
 	public static ArrayList<UsterkaListaMapa> areas = new ArrayList<UsterkaListaMapa>();
@@ -88,7 +88,8 @@ public class SpisPunktow extends ListActivity {
 		@Override
 		protected Void doInBackground(String... arg0) {
 			try {
-				String url = "http://darmowephp.cba.pl/naprawto/json/pobieraniezgloszen/twojezgloszenia.php?email="+UserDane.email+"&max="+Integer.toString(page*10);
+				String url = "http://darmowephp.cba.pl/naprawto/json/pobieraniezgloszen/wszystkiezgloszenia.php?max="+Integer.toString(page*10);
+				Log.i("url", url);
 				HttpClient hc = new DefaultHttpClient();
 				HttpGet get = new HttpGet(url);
 				HttpResponse rp = hc.execute(get);
@@ -96,9 +97,10 @@ public class SpisPunktow extends ListActivity {
 					String result = EntityUtils.toString(rp.getEntity());
 					JSONArray sessions = new JSONArray(result);
 					if(sessions.length()==0) endrecords=true;
+					UsterkaListaMapa usterka;
 					for (int i = 0; i < sessions.length(); i++) {
 						JSONObject json = sessions.getJSONObject(i);
-						UsterkaListaMapa usterka = new UsterkaListaMapa(json);
+						usterka = new UsterkaListaMapa(json);
 						areas.add(usterka);				
 					}
 				}
