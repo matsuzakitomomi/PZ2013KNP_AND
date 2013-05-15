@@ -1,6 +1,8 @@
 package pl.knp.naprawto.zglaszanie;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -8,12 +10,16 @@ import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import pl.knp.naprawto.R;
+import pl.knp.naprawto.libary.Base64;
 import pl.knp.naprawto.user.UserDane;
 import pl.knp.naprawto.zgloszeniauzytkownika.LiniaOverlay;
 import android.app.AlertDialog;
@@ -23,6 +29,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -97,6 +105,8 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 	
 	private static final int SELECT_PICTURE = 1;
 	private static final int SELECT_APARAT = 2;
+
+	InputStream inputStream;  
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -171,11 +181,11 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 		                        	    
 		                        
 		                        itemizedoverlay = new ObjectItemizedOverlay(drawable, context);
-		                        itemizedoverlay.addOverlay(punkt);
+		            			mapOverlays.add(linia);
+		            			
+		            			itemizedoverlay.addOverlay(punkt);
 		            			itemizedoverlay.populateNow();
 		            			mapOverlays.add(itemizedoverlay);
-		            			
-		            			mapOverlays.add(linia);
 		            			
 		            			wyborreczny.setChecked(false);
 		            	}
@@ -239,12 +249,12 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 			if (requestCode == SELECT_PICTURE) 
 			{              
 				Uri selectedImageUri = data.getData();      
-				selectedImagePath = getPath(selectedImageUri);      
-				zglaszanie_zdjecie.setText(getFileName(selectedImagePath));  			
+				selectedImagePath = getPath(selectedImageUri);    
+				zglaszanie_zdjecie.setText(getFileName(selectedImagePath));  	
 			}    
 			else if(requestCode == SELECT_APARAT)
 			{
-				//kiedys dokonczyc
+				
 			}
 			
 		}   	
@@ -446,6 +456,77 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 		}
 	}
 	
+	public void wyslijZdjecie()
+	{
+		Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath); 
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();       
+		bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream);
+		
+		byte [] byte_arr = stream.toByteArray();         
+		String image_str = Base64.encodeBytes(byte_arr);     
+		ArrayList<NameValuePair> nameValuePairs = new  ArrayList<NameValuePair>();      
+		nameValuePairs.add(new BasicNameValuePair("image",image_str));
+		
+		try{             
+			HttpClient httpclient = new DefaultHttpClient();       
+			HttpPost httppost = new HttpPost("http://darmowephp.cba.pl/naprawto/Upload_image_ANDROID/upload_image.php");     
+			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));        
+			HttpResponse response = httpclient.execute(httppost);       
+			String the_string_response = convertResponseToString(response);       
+			
+			Toast.makeText(ZglaszanieUsterkiActivity.this, "Response " + the_string_response, Toast.LENGTH_LONG).show();    
+			}catch(Exception e)
+			{              
+				Toast.makeText(ZglaszanieUsterkiActivity.this, "ERROR " + e.getMessage(), Toast.LENGTH_LONG).show();      
+				System.out.println("Error in http connection "+e.toString());          
+			} 
+	}
+	
+	public String convertResponseToString(HttpResponse response) 
+			throws IllegalStateException, IOException
+			{            
+				String res = "";       
+				StringBuffer buffer = new StringBuffer();      
+				inputStream = response.getEntity().getContent();   
+				int contentLength = (int) response.getEntity().getContentLength(); //getting content length…..          
+				
+				Toast.makeText(ZglaszanieUsterkiActivity.this, "contentLength : " + contentLength, Toast.LENGTH_LONG).show();  
+				if (contentLength < 0)
+				{            
+				}    
+				else
+				{    
+					byte[] data = new byte[512];   
+					int len = 0;         
+					
+					try                 
+					{                    
+						while (-1 != (len = inputStream.read(data)) )  
+						{                         
+							buffer.append(new String(data, 0, len)); //converting to string and appending  to stringbuffer…..  
+							Log.i("Wysylanie", Integer.toString(len) );
+						}           
+					}                
+					catch (IOException e)     
+					{                    
+						e.printStackTrace();        
+					}              
+					
+					try           
+					{                   
+						inputStream.close();         
+					}                  
+					catch (IOException e)     
+					{                      
+						e.printStackTrace();      
+					}              
+					
+					res = buffer.toString();   
+					Toast.makeText(ZglaszanieUsterkiActivity.this, "Result : " + res, Toast.LENGTH_LONG).show();          
+					}           
+				return res;      
+				}
+	
 	private class WysylanieZgloszenia extends AsyncTask<String, Void, Void> {
 
 		boolean blad=false;
@@ -468,9 +549,26 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
    	            HttpClient httpclient = new DefaultHttpClient();
    	            HttpPost httppost = new HttpPost("http://darmowephp.cba.pl/naprawto/json/wysylaniezgloszenia/zglos.php?email="+UserDane.email+"&title="
    	            +convertURL(tytul)+"&dir=inne&description="+convertURL(opis)+"&longitude="+Integer.toString(geoPoint.getLongitudeE6())+"&latitude="+Integer.toString(geoPoint.getLatitudeE6())+"&typ="+Integer.toString(tpy_int));
-   	            HttpResponse response = httpclient.execute(httppost);
-   	            HttpEntity entity = response.getEntity();
-   	            is = entity.getContent();
+   	            
+   	            //
+   	            if(!selectedImagePath.equalsIgnoreCase(""))
+   	            {
+   	            	Log.i("her", selectedImagePath);
+	   	            Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath); 
+	   	     		ByteArrayOutputStream stream = new ByteArrayOutputStream();       
+	   	     		bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream);
+	   	     		
+	   	     		byte [] byte_arr = stream.toByteArray();         
+	   	     		String image_str = Base64.encodeBytes(byte_arr);     
+	   	     		ArrayList<NameValuePair> nameValuePairs = new  ArrayList<NameValuePair>();      
+	   	     		nameValuePairs.add(new BasicNameValuePair("image",image_str));
+	   	     		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs)); 
+   	            }
+   	                
+   	            	HttpResponse response = httpclient.execute(httppost);
+   	            	HttpEntity entity = response.getEntity();
+   	            	is = entity.getContent();
+   	            //
 		    }catch(Exception e){
    	            Log.e("log_tag", "Error in http connection "+e.toString());
    	            blad=true;
@@ -491,6 +589,7 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 	            JSONObject jsonObiekt = new JSONObject(result);        
 	            wynik=jsonObiekt.getBoolean("wynik");
 	            
+				//wyslijZdjecie();
 		    }catch(Exception e){
 	            Log.e("log_tag", "Error converting result "+e.toString());
 	            blad=true;
