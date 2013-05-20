@@ -12,6 +12,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import pl.knp.imagedownload.ImageLoader;
 import pl.knp.naprawto.OpisUsterki;
 import pl.knp.naprawto.R;
 import pl.knp.naprawto.user.UserDane;
@@ -27,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -122,12 +124,14 @@ public class SpisPunktow extends ListActivity {
 		
 	private class PunktyListAdapter extends ArrayAdapter<UsterkaListaMapa> {
 		
-		private ArrayList<UsterkaListaMapa> usterki;    
+		private ArrayList<UsterkaListaMapa> usterki;   
+		public ImageLoader imageLoader;
 	
 		public PunktyListAdapter(Context context, ArrayList<UsterkaListaMapa> items) {
 			super(context, 0,items);		
 			
 			this.usterki = items;
+			imageLoader = new ImageLoader(context);
 		}
 
 		@Override
@@ -140,6 +144,7 @@ public class SpisPunktow extends ListActivity {
 				holder = new ViewHolder();
 				holder.tytul = (TextView) v.findViewById(R.id.tytul);
 				holder.data = (TextView)v.findViewById(R.id.data);
+				holder.photo = (ImageView)v.findViewById(R.id.photo);
 				v.setTag(holder);
 			}
 			else
@@ -151,7 +156,7 @@ public class SpisPunktow extends ListActivity {
 			holder.data.setText(a.data);
 			holder.tytul.setText(a.title);
 
-			
+			imageLoader.DisplayImage("http://darmowephp.cba.pl/naprawto/images/"+a.dir.replace(".jpg", "")+"/"+a.dir, holder.photo);
 			return v;
 		}
 
@@ -162,6 +167,7 @@ public class SpisPunktow extends ListActivity {
 	{
 		TextView tytul;
 		TextView data;
+		ImageView photo;
 	}
 	
 	public static void wyczyscPunkty()
