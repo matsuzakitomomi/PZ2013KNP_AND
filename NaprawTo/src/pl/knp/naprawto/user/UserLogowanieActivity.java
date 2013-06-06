@@ -109,7 +109,7 @@ public class UserLogowanieActivity extends Activity implements View.OnClickListe
 		    
 		    try{
    	            HttpClient httpclient = new DefaultHttpClient();
-   	            HttpPost httppost = new HttpPost("http://darmowephp.cba.pl/naprawto/json/logowanie/logowanie.php?email="+params[0]+"&haslo="+params[1]);
+   	            HttpPost httppost = new HttpPost("http://naprawto.elektro-land.pl/json/logowanie/logowanie.php?email="+params[0]+"&haslo="+params[1]);
    	            HttpResponse response = httpclient.execute(httppost);
    	            HttpEntity entity = response.getEntity();
    	            is = entity.getContent();

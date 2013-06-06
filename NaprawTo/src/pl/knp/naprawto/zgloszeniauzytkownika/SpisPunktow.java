@@ -90,7 +90,7 @@ public class SpisPunktow extends ListActivity {
 		@Override
 		protected Void doInBackground(String... arg0) {
 			try {
-				String url = "http://darmowephp.cba.pl/naprawto/json/pobieraniezgloszen/twojezgloszenia.php?email="+UserDane.email+"&max="+Integer.toString(page*10);
+				String url = "http://naprawto.elektro-land.pl/json/pobieraniezgloszen/twojezgloszenia.php?email="+UserDane.email+"&max="+Integer.toString(page*10);
 				HttpClient hc = new DefaultHttpClient();
 				HttpGet get = new HttpGet(url);
 				HttpResponse rp = hc.execute(get);
@@ -156,7 +156,7 @@ public class SpisPunktow extends ListActivity {
 			holder.data.setText(a.data);
 			holder.tytul.setText(a.title);
 
-			imageLoader.DisplayImage("http://darmowephp.cba.pl/naprawto/images/"+a.dir.replace(".jpg", "")+"/"+a.dir, holder.photo);
+			imageLoader.DisplayImage("http://naprawto.elektro-land.pl//images/"+a.dir.replace(".jpg", "")+"/"+a.dir, holder.photo);
 			return v;
 		}
 

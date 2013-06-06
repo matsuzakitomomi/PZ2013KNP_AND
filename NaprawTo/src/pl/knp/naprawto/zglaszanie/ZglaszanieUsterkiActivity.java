@@ -469,7 +469,7 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 		
 		try{             
 			HttpClient httpclient = new DefaultHttpClient();       
-			HttpPost httppost = new HttpPost("http://darmowephp.cba.pl/naprawto/Upload_image_ANDROID/upload_image.php");     
+			HttpPost httppost = new HttpPost("http://naprawto.elektro-land.pl/Upload_image_ANDROID/upload_image.php");     
 			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));        
 			HttpResponse response = httpclient.execute(httppost);       
 			String the_string_response = convertResponseToString(response);       
@@ -547,7 +547,7 @@ public class ZglaszanieUsterkiActivity extends MapActivity implements View.OnCli
 
 		    try{
    	            HttpClient httpclient = new DefaultHttpClient();
-   	            HttpPost httppost = new HttpPost("http://darmowephp.cba.pl/naprawto/json/wysylaniezgloszenia/zglos.php?email="+UserDane.email+"&title="
+   	            HttpPost httppost = new HttpPost("http://naprawto.elektro-land.pl/json/wysylaniezgloszenia/zglos.php?email="+UserDane.email+"&title="
    	            +convertURL(tytul)+"&dir=inne&description="+convertURL(opis)+"&longitude="+Integer.toString(geoPoint.getLongitudeE6())+"&latitude="+Integer.toString(geoPoint.getLatitudeE6())+"&typ="+Integer.toString(tpy_int));
    	            
    	            //

@@ -21,7 +21,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar">
+        android:theme="@android:style/Theme.NoTitleBar"
+        >
         
         <uses-library android:name="com.google.android.maps" />
         
@@ -72,6 +73,10 @@
          ></activity>
           <activity 
             android:name="pl.knp.zgloszenia.TabHostActivityWszystkie"
+            android:screenOrientation="portrait"
+         ></activity>
+          <activity 
+            android:name="pl.knp.informacje.OnasActivity"
             android:screenOrientation="portrait"
          ></activity>
     </application>

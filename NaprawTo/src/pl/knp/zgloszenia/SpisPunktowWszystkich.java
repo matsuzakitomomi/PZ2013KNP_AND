@@ -88,7 +88,7 @@ public class SpisPunktowWszystkich extends ListActivity {
 		@Override
 		protected Void doInBackground(String... arg0) {
 			try {
-				String url = "http://darmowephp.cba.pl/naprawto/json/pobieraniezgloszen/wszystkiezgloszenia.php?max="+Integer.toString(page*10);
+				String url = "http://naprawto.elektro-land.pl/json/pobieraniezgloszen/wszystkiezgloszenia.php?max="+Integer.toString(page*10);
 				Log.i("url", url);
 				HttpClient hc = new DefaultHttpClient();
 				HttpGet get = new HttpGet(url);

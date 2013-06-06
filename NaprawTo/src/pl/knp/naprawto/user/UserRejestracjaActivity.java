@@ -138,7 +138,7 @@ public class UserRejestracjaActivity extends Activity implements View.OnClickLis
 		    
 		    try{
    	            HttpClient httpclient = new DefaultHttpClient();
-   	            HttpPost httppost = new HttpPost("http://darmowephp.cba.pl/naprawto/json/rejestracja/rejestracja.php?email="+params[0]+"&haslo="+params[1]);
+   	            HttpPost httppost = new HttpPost("http://naprawto.elektro-land.pl/json/rejestracja/rejestracja.php?email="+params[0]+"&haslo="+params[1]);
    	            HttpResponse response = httpclient.execute(httppost);
    	            HttpEntity entity = response.getEntity();
    	            is = entity.getContent();
